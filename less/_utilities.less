@@ -1,0 +1,72 @@
+.rounded-corners(@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.text-shadow(@x: 0, @y: 1px, @z: 2px, @color: @midnight-blue) {
+  text-shadow: @x @y @z @color;
+}
+
+.box-shadow(@x: 0, @y: 1px, @z: 3px, @color: @midnight-blue) {
+  box-shadow: @x @y @z @color;
+}
+
+.button-helper(@highlight: @wet-asphalt, @base: @midnight-blue) {
+  background: @highlight;
+  border: 1px @base solid;
+  // color: #fff;
+  // .text.bold();
+  // .text-shadow(0, 1px, 2px, @base);
+
+  // span {
+  //   .padding-left();
+  // }
+
+  &:hover {
+    background: darken(@highlight, 5%);
+    border: 1px darken(@base, 5%) solid;
+  }
+}
+
+.button-variant(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  .margin-right();
+  .margin-bottom();
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    color: @color;
+    background-color: darken(@background, 8%);
+        border-color: darken(@border, 12%);
+  }
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border;
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
